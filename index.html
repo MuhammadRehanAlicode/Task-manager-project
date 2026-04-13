@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Animation -->
+  <style>
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glow {
+      box-shadow: 0 0 15px rgba(59,130,246,0.6);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#1e293b] text-white min-h-screen flex flex-col items-center p-8">
+
+  <h1 class="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text animate-pulse">
+    Task Manager
+  </h1>
+
+  <!-- Task Form -->
+  <form id="taskForm" class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl w-80 space-y-4 shadow-2xl hover:scale-105 transition duration-300 fade-in">
+    
+    <input 
+      type="text" 
+      id="taskInput" 
+      placeholder="Enter task..." 
+      class="w-full p-2 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+    >
+
+    <!-- Priority Dropdown -->
+    <select id="prioritySelect" class="w-full p-2 rounded-lg text-black focus:ring-2 focus:ring-blue-400">
+      <option value="High"> High</option>
+      <option value="Medium"> Medium</option>
+      <option value="Low"> Low</option>
+    </select>
+
+    <button 
+      type="submit" 
+      class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-cyan-500 hover:to-blue-500 p-2 rounded-lg font-semibold transition duration-300 glow hover:scale-105"
+    >
+       Add Task
+    </button>
+
+  </form>
+
+  <!-- Live Preview -->
+  <p id="livePreview" class="mt-4 text-cyan-400 italic fade-in"></p>
+
+  <!-- Message -->
+  <p id="message" class="mt-2 text-green-400 hidden fade-in">
+    ✅ Task added successfully!
+  </p>
+
+  
+  <div id="taskList" class="mt-6 w-80 space-y-3"></div>
+
+  
+  <script src="main.js"></script>
+
+</body>
+</html>
